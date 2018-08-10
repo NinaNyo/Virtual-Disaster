@@ -8,7 +8,7 @@ public class inventory : MonoBehaviour
     public GameObject invLight;
     public GameObject mainCamera;
     public GameObject player;
-    move movement;
+    NvrBluetoothController movement;
     pickup pick;
 
     private bool inven;
@@ -25,7 +25,7 @@ public class inventory : MonoBehaviour
     {
         inven = false;
         invLight.SetActive(false);
-        movement = player.GetComponent<move>();
+        movement = player.GetComponent<NvrBluetoothController>();
         pick = player.GetComponent<pickup>();
 
     }
@@ -40,11 +40,20 @@ public class inventory : MonoBehaviour
                 invLight.SetActive(true);
                 inven = true;
                 pick.pick = false;
+                var rotationVector = transform.rotation.eulerAngles;
+
+
+                Camera.main.transform.rotation = Quaternion.Euler(0,0,0);
+
+                player.transform.rotation = Quaternion.Euler(78,0,0);
+
                 player_posi = player.transform.position;
                 pick.player_place = player_posi;
                 player.transform.position = new Vector3(960, 651, -1318);
-                player.transform.Rotate(78, 0, 0);
 
+               
+
+               
                 movement.disable_move = false;
                 
 
@@ -55,11 +64,20 @@ public class inventory : MonoBehaviour
             {
                 invLight.SetActive(false);
                 pick.pick = true;
+
+                Camera.main.transform.rotation = Quaternion.Euler(0,0,0);
+
+                player.transform.rotation = Quaternion.Euler(0,0,0);
+
+
                 player.transform.position = player_posi;
-                player.transform.Rotate(-78, 0, 0);
+
+
+
                 inven = false;
 
                 movement.disable_move = true;
+
             }
         }
 

@@ -4,7 +4,7 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Bottle_2_Material
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
@@ -65,6 +65,7 @@ Material:
     - _Metallic: 0.284
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _OutlineWidth: 0.006
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -74,3 +75,4 @@ Material:
     m_Colors:
     - _Color: {r: 0.9632353, g: 0.9632353, b: 0.9632353, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0.9811321, g: 0.97384894, b: 0.013883919, a: 1}

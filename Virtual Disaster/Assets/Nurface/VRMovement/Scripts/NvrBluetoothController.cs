@@ -10,18 +10,22 @@ public class NvrBluetoothController : MonoBehaviour {
     // CharacterController script
     CharacterController myCC;
 
+    public bool disable_move;
+
     // Use this for initialization
     void Start () {
         // Find the CharacterController
         myCC = gameObject.GetComponent<CharacterController>();
         // Find the Main Camera
         vrCamera = Camera.main.transform;
+        disable_move = true;
     }
 	
 	// Update is called once per frame
 	void Update () {
         // Move with SimpleMove based on Horizontal adn Vertical input
-        myCC.SimpleMove(speed * vrCamera.TransformDirection(Vector3.forward * Input.GetAxis("Vertical") + Vector3.right * Input.GetAxis("Horizontal")));
+        if (disable_move)
+            myCC.SimpleMove(speed * vrCamera.TransformDirection(Vector3.forward * Input.GetAxis("Vertical") + Vector3.right * Input.GetAxis("Horizontal")));
         //myCC.SimpleMove(speed * vrCamera.TransformDirection(Vector3.back * Input.GetAxis("Horizontal") + Vector3.right * Input.GetAxis("Vertical")));
     }
 }
